@@ -1,75 +1,18 @@
-# ============================================================
-# PORTFOLIO OPTIMIZATION & BACKTESTING ANALYSIS
-# ============================================================
-# RESEARCH QUESTION:
-# How did portfolio optimization strategies perform using the five largest 
-# US companies by market capitalization in 2004? This analysis compares
-# two theoretical optimization approaches (minimum variance and mean-variance)
-# against the passive S&P 500 benchmark over a 21-year out-of-sample period.
-#
-# STOCK SELECTION METHODOLOGY:
-# The portfolio consists of the five largest US market cap companies as of 
-# November 2004 (at the start of the analysis period):
-#   • GE (General Electric)     - Ticker: GE
-#   • MSFT (Microsoft)          - Ticker: MSFT
-#   • XOM (ExxonMobil)          - Ticker: XOM
-#   • PFE (Pfizer)              - Ticker: PFE
-#   • C (Citigroup)             - Ticker: C
-#
-# Note: Each ticker symbol (GE, MSFT, XOM, PFE, C) is a standard stock 
-# identifier used by the Yahoo Finance API via the quantmod package to 
-# automatically retrieve historical price data.
-#
-# ANALYSIS PERIOD: 
-# November 2004 - November 2025 (21 years)
-# - Training data: First 48 months (4 years) for initial portfolio construction
-# - Out-of-sample testing: 17 annual rebalancing cycles (2005-2021+)
-#
-# METHODOLOGIES EMPLOYED:
-# 1. Capital Asset Pricing Model (CAPM)
-#    - Estimates expected returns based on systematic risk (beta)
-#    - Formula: E(R) = Risk-Free Rate + Beta × (Market Return - Risk-Free Rate)
-#    - Benchmark: S&P 500 index
-#
-# 2. Global Minimum Variance Portfolio (GMVP)
-#    - Minimizes portfolio volatility regardless of expected returns
-#    - Optimal for risk-averse investors
-#    - Closed-form solution: w = Σ⁻¹·1 / (1ᵀ·Σ⁻¹·1)
-#
-# 3. Mean-Variance (MV) Efficient Portfolio
-#    - Finds optimal portfolio on efficient frontier
-#    - Maximizes return for given risk level
-#    - Based on Markowitz optimization framework
-#
-# 4. Rolling-Window Backtesting
-#    - Expanding window: Start with 48 months, grow by 12 months annually
-#    - Rebalancing: Annual (each November)
-#    - No look-ahead bias: Uses only historical data available at rebalancing date
-#
-# 5. Transaction Cost Modeling
-#    - Realistic market friction: 10 basis points (0.1%) per rebalancing
-#    - Measures impact of buying/selling costs on strategy returns
-#    - Compares gross returns (before costs) vs net returns (after costs)
-#
-# 6. Inflation Adjustment
-#    - Real returns: Deflated by Consumer Price Index (CPI)
-#    - Benchmark: November 2004 dollars
-#    - Coverage: November 2004 - November 2024 (latest CPI data available)
-#    - Purpose: Assesses true purchasing power gains
-#
-# DATA SOURCES:
-# - Stock prices: Yahoo Finance (via quantmod::getSymbols)
-# - S&P 500 benchmark: Yahoo Finance ticker SPY
-# - Risk-free rate: Federal Reserve Economic Data (FRED) - 3M Treasury yield
-# - Inflation data: FRED - Consumer Price Index for All Urban Consumers (CPI-U)
-#
-# EXPECTED OUTPUTS:
-# - CAPM Analysis: Beta coefficients and expected returns for each stock
-# - Annual Performance: Returns, volatility, Sharpe ratios, turnover metrics
-# - Wealth Evolution: Dollar growth of $1 invested in each strategy
-# - Summary Statistics: 21-year annualized metrics and performance comparison
-# - Visualizations: Two plots (nominal and inflation-adjusted wealth)
-# ============================================================
+# Portfolio Optimization & Backtesting Analysis (2004-2025)
+
+## Research Question
+How did portfolio optimization strategies (GMVP, Mean-Variance) perform on the five 
+largest US companies (2004) versus the S&P 500 benchmark over 21 years?
+
+## Data & Methodology
+**Period**: Nov 2004 - Nov 2025 | **Inception**: 48-month training window | **Rebalancing**: Annual
+**Stocks**: GE, MSFT, XOM, PFE, C (top 5 market cap, Nov 2004)
+**Optimization**: CAPM + Global Minimum Variance (GMVP) + Mean-Variance efficient portfolio
+**Backtesting**: Rolling-window with no look-ahead bias | **Transaction costs**: 10 bps
+**Inflation adjustment**: CPI-deflated to Nov 2004 dollars (through Nov 2024)
+
+## Key Outputs
+CAPM betas | Annual performance metrics | Wealth evolution (nominal & real) | Sharpe ratios
 
 # ============================================================
 # SECTION 1: ENVIRONMENT SETUP
@@ -874,4 +817,5 @@ cat("Period: Nov 2004 - Nov 2025 (21 years)\n")
 cat("Nominal results: Full period through Nov 2025\n")
 cat("Real results: Through Nov 2024 (CPI data limitation)\n")
 cat(paste(rep("=", 70), collapse = ""), "\n")
+
 
