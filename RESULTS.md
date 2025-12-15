@@ -31,6 +31,7 @@
 | 2024 | $3.77 | $3.78 | $3.52 | $3.53 | $7.35 |
 | 2025 | $4.04 | $4.05 | $4.63 | $4.63 | $8.92 |
 
+<img width="3900" height="2100" alt="image" src="https://github.com/user-attachments/assets/3b5cace1-fe04-4cf5-872b-91cd2442dfa6" />
 
 ### How $1 Invested in 2004 Grows (Real Value)
 
