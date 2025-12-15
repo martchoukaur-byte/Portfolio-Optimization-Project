@@ -104,8 +104,6 @@
 ### How $1 Invested in 2004 Grows (Real Value)
 
 
-
-
 | Year | GMVP (Net) | GMVP (Gross) | MV (Net) | MV (Gross) | S&P 500 |
 |---|---|---|---|---|---|
 | 2004 | $1.00 | $1.00 | $1.00 | $1.00 | $1.00 |
@@ -129,6 +127,10 @@
 | 2022 | $6.29 | $6.30 | $33.90 | $33.93 | $3.12 |
 | 2023 | $7.42 | $7.44 | $50.65 | $50.70 | $3.32 |
 | 2024 | $9.42 | $9.44 | $77.07 | $77.15 | $4.47 |
+
+
+<img width="3900" height="2100" alt="image" src="https://github.com/user-attachments/assets/522cae86-af1e-4e49-87c8-15382d98f852" />
+
 
 **Executive Summary - 2004 Cohort**
 ### The optimization strategies applied to 2004's market leaders—GE, Microsoft, ExxonMobil, Pfizer, and Citigroup—delivered disappointing results relative to passive S&P 500 investment. While both the Mean-Variance (MV) and Global Minimum Variance (GMVP) portfolios approximately doubled to tripled real wealth over the 20-year period (Nov 2004 - Nov 2024), a passive S&P 500 investment quadrupled to quintupled real wealth over the same period.
