@@ -45,11 +45,8 @@ Minimizes portfolio volatility regardless of expected returns:
 
 #### 3. Mean-Variance (MV) Efficient Portfolio
 
-Finds optimal portfolio on Markowitz efficient frontier:
-
-- Maximizes return for given risk level
-- Based on Markowitz optimization framework
-- Uses CAPM-derived expected returns as optimization target
+Maximizes portfolio return for a given risk level using Markowitz optimization. 
+Target return = arithmetic mean of estimated individual stock returns (CAPM-based)
 
 #### 4. Rolling-Window Backtesting
 
@@ -131,10 +128,8 @@ Minimizes portfolio volatility independent of returns:
 
 #### 3. Mean-Variance (MV) Efficient Portfolio
 
-Finds optimal portfolio on Markowitz efficient frontier:
-
-- Balances return maximization with risk minimization
-- Uses historical mean returns for optimization target
+Maximizes portfolio return for a given risk level using Markowitz optimization. 
+Target return = arithmetic mean of estimated individual stock returns (CAPM-based)
 
 #### 4. Rolling-Window Backtesting
 
@@ -178,30 +173,36 @@ The CAPM framework is used to estimate required returns based on each stock's sy
 - **Risk-Free Rate:** Average 3-month Treasury yield over the period
 - **Market Risk Premium:** Difference between S&P 500 return and risk-free rate
 
-### Global Minimum Variance Portfolio (GMVP)
+## Global Minimum Variance Portfolio (GMVP)
 
 The GMVP solves the constrained optimization problem:
 
 Minimize: w^T Σ w (portfolio variance)
-Subject to: Σ w_i = 1 (fully invested)
+Subject to: 
+- Σ w_i = 1 (fully invested)
+- 0 ≤ w_i ≤ 1 (no short selling, no leverage)
 
 The closed-form solution is: **w = Σ⁻¹·1 / (1ᵀ·Σ⁻¹·1)**
 
 Where:
 - Σ = Covariance matrix of returns
 - 1 = Vector of ones
+- w_i = Weight of asset i in portfolio
 
 ### Mean-Variance Efficient Portfolio (MV)
 
 The MV portfolio solves a constrained optimization problem:
 
 Maximize: w^T μ - λ/2 · w^T Σ w (return minus risk penalty)
-Subject to: Σ w_i = 1 (fully invested)
+Subject to: 
+- Σ w_i = 1 (fully invested)
+- 0 ≤ w_i ≤ 1 (no short selling, no leverage)
 
 Where:
-- μ = Vector of expected returns (from CAPM)
+- μ = Vector of expected returns (arithmetic mean of CAPM-derived individual stock returns)
 - Σ = Covariance matrix of returns
 - λ = Risk aversion parameter (implicit in setting target return = mean CAPM return)
+- w_i = Weight of asset i in portfolio
 
 ### Rolling-Window Backtesting Framework
 
